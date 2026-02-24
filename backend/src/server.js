@@ -1,15 +1,18 @@
 import express from "express"
+import path from "path"
 import { ENV } from "./lib/env.js";
 import { connectDB } from "./lib/db.js";
 
 const app = express()
 
-console.log(ENV.PORT);
-console.log(ENV.DB_URL);
-
+const __dirname = path.resolve()
 app.get("/health",(req,res) => {
     res.status(200).json({msg:"api is up and running"});
 });
+app.get("/books",(req,res) => {
+    res.status(200).json({msg:"this  is the books endpoint"});
+});
+
 if(ENV.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
 

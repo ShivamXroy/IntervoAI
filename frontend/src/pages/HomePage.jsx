@@ -6,11 +6,12 @@ function HomePage() {
   
   // const {data, isLoading, error} = useQuery({
   //   queryFn: () => fetch("/api/books").then(res => res.json())
-  // }
+  // })
 
     return (
       <div>
-        <button className="btn btn-secondary" onClick={() => toast.success("This is success")}>Click me</button>
+        <button className="btn btn-secondary" onClick={() => 
+          toast.error("This is a success toast")}>Click me</button>
 
         <SignedOut>
           <SignInButton mode="modal">
